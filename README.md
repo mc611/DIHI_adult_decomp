@@ -10,7 +10,7 @@
 * [Model Training](#model-training)
 * [Visualizations](#visualizations)
 * [Status](#status)
-* [Liscence](#liscence)
+* [License](#license)
 * [Contact](#contact)
 * [Acknowledgement](#acknowledgement)
 
@@ -180,6 +180,13 @@ Instructions on setting up the project locally.
 
 ### Setup
 
+1. Get access to Duke EHR (Electrical Health Record) data from DIHI project folder (dihi_qi) via PACE machine [https://pace.ori.duke.edu/](https://pace.ori.duke.edu/)
+2. Clone the repo
+```
+git clone http://pacegitlab.dhe.duke.edu/dihi/2019_rfa/adult_decompensation.git
+```
+3. Follow the code map under ./Docs/Project to run the project from start to end
+
 ## Data
 
 ## Model Training
@@ -188,8 +195,21 @@ Instructions on setting up the project locally.
 
 ## Status
 
-## Liscence
+Project is: in progress; continuation is pending;
+
+To-do list:
+* Update LU_hospital_units table in P:/dihi_qi/data_pipeline/db/data_pipeline.db
+* 100% unit conversion for vital, analyte, medication data etc is pending
+
+## License
 
 ## Contact
 
+Ziyuan Shen - ziyuan.shen@duke.edu
+
+Mengxuan Cui - mengxuan.cui@duke.edu
+
 ## Acknowledgement
+
+This work is funded by [Woo Center for Big Data and Precision Health](http://healthdata.pratt.duke.edu/), in collaboration with [DIHI](https://dihi.org/) (Duke Institute for Health Innovation). The authors thank Professor [Xiling Shen](http://healthdata.pratt.duke.edu/people/xiling-shen) for consistently supporting the project and DIHI team (Will Ratliff and Mark Sendak for hospital data resource and modeling support, Michael Gao and Marshall Nichols for technical support) for guidance and assistance with project specifics.
+
