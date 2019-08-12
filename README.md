@@ -16,6 +16,8 @@
 
 ## Architecture
 
+Directory tree along with functionality of each folder(or file) is summarized as follows:
+
 <details><summary>Code</summary><blockquote>
 <details><summary>DataPrep</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cohort&nbsp;&nbsp;&nbsp;&nbsp;//codes for cohort generation<br/>
@@ -54,9 +56,9 @@
 </details>
 </blockquote></details>
 
-<details><summary>Docs</summary><blockquote>
+<details><summary>Docs&nbsp;&nbsp;&nbsp;&nbsp;//project documentation and materials</summary><blockquote>
 <details><summary>Project</summary>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code_map_v1.xlsx&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code map_v1.xlsx&nbsp;&nbsp;&nbsp;&nbsp;
 //outlines the code and associated data files for "start-to-finish" process of data curation<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;literature_review.pdf<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perspectives Piece.docx
@@ -166,14 +168,14 @@ Instructions on setting up the project locally.
 
 <details><summary>Additional python packages required:</summary>
 <ul>
-<li>numpy 1.16.2</li>
+<li>NumPy 1.16.2</li>
 <li>pandas 0.24.2</li>
 <li>TensorFlow 1.14.0</li>
 <li>Keras 2.2.4</li>
 <li>scikit-learn 0.21.2</li>
-<li>xgboost 0.90</li>
+<li>XGBoost 0.90</li>
 <li>imbalanced-learn 0.5.0</li>
-<li>matplotlib 3.1.0</li>
+<li>Matplotlib 3.1.0</li>
 <li>seaborn 0.9.0</li>
 </ul>
 </details>
@@ -182,12 +184,19 @@ Instructions on setting up the project locally.
 
 1. Get access to Duke EHR (Electrical Health Record) data from DIHI project folder (dihi_qi) via PACE machine [https://pace.ori.duke.edu/](https://pace.ori.duke.edu/)
 2. Clone the repo
-```
+
+```sh
 git clone http://pacegitlab.dhe.duke.edu/dihi/2019_rfa/adult_decompensation.git
 ```
-3. Follow the code map under ./Docs/Project to run the project from start to end
+
+3. Follow the code maps under ./Docs/Project to run the project from start to end
 
 ## Data
+
+All the source data comes from the following locations:
+
+* P:/dihi_qi/data_pipeline/data
+* P:/dihi_qi/data_pipeline/metadata
 
 ## Model Training
 
@@ -198,8 +207,12 @@ git clone http://pacegitlab.dhe.duke.edu/dihi/2019_rfa/adult_decompensation.git
 Project is: in progress; continuation is pending;
 
 To-do list:
-* Update LU_hospital_units table in P:/dihi_qi/data_pipeline/db/data_pipeline.db
+
+* Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated
 * 100% unit conversion for vital, analyte, medication data etc is pending
+* Model needs to be refined to predict ICU admission within first 24 hrs after hospital admission
+* Data collection and prediction time window is subjective to change
+* More outcomes (RRT events, mortality etc) are to be incorporated
 
 ## License
 
@@ -211,5 +224,4 @@ Mengxuan Cui - mengxuan.cui@duke.edu
 
 ## Acknowledgement
 
-This work is funded by [Woo Center for Big Data and Precision Health](http://healthdata.pratt.duke.edu/), in collaboration with [DIHI](https://dihi.org/) (Duke Institute for Health Innovation). The authors thank Professor [Xiling Shen](http://healthdata.pratt.duke.edu/people/xiling-shen) for consistently supporting the project and DIHI team (Will Ratliff and Mark Sendak for hospital data resource and modeling support, Michael Gao and Marshall Nichols for technical support) for guidance and assistance with project specifics.
-
+This work is funded by [Woo Center for Big Data and Precision Health](http://healthdata.pratt.duke.edu/), in collaboration with [DIHI](https://dihi.org/) (Duke Institute for Health Innovation). The authors thank Professor [Xiling Shen](http://healthdata.pratt.duke.edu/people/xiling-shen) for consistently supporting the project and DIHI team for guidance and assistance with project specifics (Will Ratliff and Mark Sendak for hospital data resource and modeling support, Michael Gao and Marshall Nichols for technical support).
