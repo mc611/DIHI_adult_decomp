@@ -61,6 +61,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;literature_review.pdf<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perspectives Piece.docx
 </details>
+&nbsp;&nbsp;&nbsp;&nbsp;Slides&nbsp;&nbsp;&nbsp;&nbsp;//presentation slides for project milestones
 </blockquote></details>
 
 <details><summary>Output&nbsp;&nbsp;&nbsp;&nbsp;//project output files, figures, etc</summary><blockquote>
@@ -149,6 +150,35 @@ README.md
 -->
 
 ## Getting Started
+
+Instructions on setting up the project locally.
+
+### Prerequisites
+
+<details><summary>List of dependencies required for the project:</summary>
+<ul>
+<li>Python 3.7.3</li>
+<li>SQLite3 2.6.0</li>
+<li>Git 2.14.1</li>
+<li>GNU Awk 4.1.4</li>
+</ul>
+</details>
+
+<details><summary>Additional python packages required:</summary>
+<ul>
+<li>numpy 1.16.2</li>
+<li>pandas 0.24.2</li>
+<li>TensorFlow 1.14.0</li>
+<li>Keras 2.2.4</li>
+<li>scikit-learn 0.21.2</li>
+<li>xgboost 0.90</li>
+<li>imbalanced-learn 0.5.0</li>
+<li>matplotlib 3.1.0</li>
+<li>seaborn 0.9.0</li>
+</ul>
+</details>
+
+### Setup
 
 ## Data
 
