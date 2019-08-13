@@ -1,13 +1,12 @@
 # Adult Decompensation (In progress!)
 
-> This project aims to initialize machine learning models for predicting adult inpatients' decompensation (ICU admission, mortality, RRT events, etc). The ultimate goal is to reduce patients' deterioration and standardize response protocols.
+> This project aims to initialize machine learning models for predicting adult inpatients' decompensation (ICU admission, mortality, RRT events, etc). The ultimate goal is to reduce patients' deterioration and standardize hospital response protocols.
 
 ## Table of contents
 
 * [Architecture](#architecture)
 * [Getting Started](#getting-started)
 * [Data](#data)
-* [Model Training](#model-training)
 * [Visualizations](#visualizations)
 * [Status](#status)
 * [License](#license)
@@ -16,17 +15,17 @@
 
 ## Architecture
 
-Directory tree along with functionality of each folder(or file) is summarized as follows:
+Directory tree along with functionality of each folder(or file) is summarized as follows (click the arrow to expand folders):
 
 <details><summary>Code</summary><blockquote>
 <details><summary>DataPrep</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cohort&nbsp;&nbsp;&nbsp;&nbsp;//codes for cohort generation<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features&nbsp;&nbsp;&nbsp;&nbsp;//codes for pulling and cleaning data elements<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outcome<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.py<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.sql
 </details>
-&nbsp;&nbsp;&nbsp;&nbsp;db
+&nbsp;&nbsp;&nbsp;&nbsp;db&nbsp;&nbsp;&nbsp;&nbsp;//codes for creating project database and importing data into the database
 <details><summary>Model</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design_matrix<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News&nbsp;&nbsp;&nbsp;&nbsp;//python package for implementing News(National Early Warning Score)<br/>
@@ -60,6 +59,8 @@ Directory tree along with functionality of each folder(or file) is summarized as
 <details><summary>Project</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code map_v1.xlsx&nbsp;&nbsp;&nbsp;&nbsp;
 //outlines the code and associated data files for "start-to-finish" process of data curation<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code map_supplement.xlsx&nbsp;&nbsp;&nbsp;&nbsp;
+//outlines supporting code and data files for feature engineering, modeling, etc<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;literature_review.pdf<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perspectives Piece.docx
 </details>
@@ -72,84 +73,6 @@ Directory tree along with functionality of each folder(or file) is summarized as
 </blockquote></details>
 .gitignore<br/>
 README.md
-
-<!--
-<pre><code>
-.
-│───Code
-|   |───DataPrep
-|   |   |───cohort    //codes for cohort generation
-|   |   |
-|   |   |───features
-|   |   |
-|   |   |───outcome
-|   |   |
-|   |   |───adt_transfer.py
-|   |   |
-|   |   └───adt_transfer.sql
-|   |
-|   |───db    //codes for creating project database file(s) and importing data to database(s)
-|   |
-|   |───Model
-|   |   |───design_matrix
-|   |   |
-|   |   |───News    //python package for implementing News(National Early Warning Score)
-|   |   |
-|   |   |───visualization    //model visualization
-|   |   |
-|   |   |───model_utils.py    //model utils python package
-|   |   |
-|   |   |───run_ann.ipynb
-|   |   |
-|   |   |───run_logistic_regression.py
-|   |   |
-|   |   |───run_news.py
-|   |   |
-|   |   |───run_random_forest.ipynb
-|   |   |
-|   |   └───run_xgboost.py
-|   |
-|   └───utils    //utils python package (db utils, dataframe utils, etc)
-|
-|───Data
-|   |───db    //project database file(s)
-|   |
-|   |───metadata
-|   |
-|   |───Modeling
-|   |   |───design_matrix   //design matrix file(s)
-|   |   |
-|   |   └───Output    //model output data
-|   |
-|   └───Processed
-|       |───cohort
-|       |
-|       |───features
-|       |
-|       |───outcome
-|       |
-|       └───adult_decomp_adt_transfer.csv
-|
-|───Docs
-|   |───Project
-|   |   |───code_map_v1.xlsx    //outlines the code and associated data files for "start-to-finish" process of data curation
-|   |   |
-|   |   |───literature_review.pdf
-|   |   |
-|   |   └───Perspectives Piece.docx
-|   |
-|   └───Slides    //presentation slides for project milestones
-|
-|───Output    //project output files, figures, etc
-|   |───Figures    //data visualization figures
-|   |
-|   └───*.csv
-|   
-|───.gitignore
-|
-└───README.md
-</code></pre>
--->
 
 ## Getting Started
 
@@ -189,7 +112,7 @@ Instructions on setting up the project locally.
 git clone http://pacegitlab.dhe.duke.edu/dihi/2019_rfa/adult_decompensation.git
 ```
 
-3. Follow the code maps under ./Docs/Project to run the project from start to end
+3. Follow the code maps under `./Docs/Project` to run the project from start to end
 
 ## Data
 
@@ -198,9 +121,13 @@ All the source data comes from the following locations:
 * P:/dihi_qi/data_pipeline/data
 * P:/dihi_qi/data_pipeline/metadata
 
-## Model Training
-
 ## Visualizations
+
+Data visualizations for the project include:
+
+* ./Code/DataPrep/cohort/visualization&nbsp;&nbsp;&nbsp;&nbsp;//cohort visualization
+* ./Code/DataPrep/features/vitals/visualization&nbsp;&nbsp;&nbsp;&nbsp;//vitals visualization (data element count, data quality assurance, etc)
+* ./Code/Model/visualization&nbsp;&nbsp;&nbsp;&nbsp;//Model visualization(model metrics, etc)
 
 ## Status
 
@@ -209,7 +136,13 @@ Project is: in progress; continuation is pending;
 To-do list:
 
 * Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated
+* Data elements and groupers (feature engineering) used for the model need to be updated by referencing data element prevalence and distribution
+* Data quality assurance for vitals needs to be refined (break down vitals into the three hospitals and into each distinct flo measurement name)
+* Data quality assurance for analytes, medications and diagnoses are pending
+* Medlist data hasn't been used (to support medication features)
+* Problist data hasn't been used (to support diagnosis features)
 * 100% unit conversion for vital, analyte, medication data etc is pending
+* Current random down sampling needs to be replaced by stratified down sampling
 * Model needs to be refined to predict ICU admission within first 24 hrs after hospital admission
 * Data collection and prediction time window is subjective to change
 * More outcomes (RRT events, mortality etc) are to be incorporated
