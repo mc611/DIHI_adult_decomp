@@ -1,3 +1,5 @@
+**Note:** This project is **not** 100% open source. Only part of coding developed by owner of this github account is made public. To view the original GitLab repo ([http://pacegitlab.dhe.duke.edu/dihi/2019_rfa/adult_decompensation.git](http://pacegitlab.dhe.duke.edu/dihi/2019_rfa/adult_decompensation.git)), please apply access to Duke PACE machine [https://pace.ori.duke.edu/](https://pace.ori.duke.edu/).
+
 # Adult Decompensation (In progress!)
 
 > This project aims to initialize machine learning models for predicting adult inpatients' decompensation (ICU admission, mortality, RRT events, etc). The ultimate goal is to reduce patients' deterioration and standardize hospital response protocols.
