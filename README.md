@@ -133,7 +133,7 @@ Data visualizations for the project include:
 
 ## Status
 
-Project is: in progress; continuation is pending;
+Project is: in progress;
 
 To-do list:
 
