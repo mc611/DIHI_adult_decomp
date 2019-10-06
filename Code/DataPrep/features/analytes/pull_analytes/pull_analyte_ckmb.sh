@@ -1,12 +1,11 @@
-#! /bin/bash
 # Adult Decompensation Prediction
 # 
 # Copyright 2019 Ziyuan Shen, Duke Institute for Health Innovation (DIHI), Duke University School of Medicine, Durham NC.
 # 
 # All Rights Reserved.
 
-grouper_file='P:/dihi_qi/data_pipeline/metadata/component_grouping/data/groupers/wbc_10_1_2014_8_1_2018.csv'
-output_file='../../../../../Data/Processed/features/analytes/wbc/wbc.csv'
+grouper_file='P:/dihi_qi/data_pipeline/metadata/component_grouping/data/groupers/CK_MB_10_1_2014_8_1_2018.csv'
+output_file='../../../../../Data/Processed/features/analytes/ckmb/ckmb.csv'
 cohort_pat_id='../../../../../Data/Processed/cohort/cohort_pat_ids.csv'
 
 #remove output file if exists

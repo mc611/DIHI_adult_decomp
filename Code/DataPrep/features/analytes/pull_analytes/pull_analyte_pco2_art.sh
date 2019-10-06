@@ -1,12 +1,11 @@
-#! /bin/bash
 # Adult Decompensation Prediction
 # 
 # Copyright 2019 Ziyuan Shen, Duke Institute for Health Innovation (DIHI), Duke University School of Medicine, Durham NC.
 # 
 # All Rights Reserved.
 
-grouper_file='P:/dihi_qi/data_pipeline/metadata/component_grouping/data/groupers/wbc_10_1_2014_8_1_2018.csv'
-output_file='../../../../../Data/Processed/features/analytes/wbc/wbc.csv'
+grouper_file='P:/dihi_qi/data_pipeline/metadata/component_grouping/data/groupers/PCO2_art_10_1_2014_8_1_2018.csv'
+output_file='../../../../../Data/Processed/features/analytes/pco2_art/pco2_art.csv'
 cohort_pat_id='../../../../../Data/Processed/cohort/cohort_pat_ids.csv'
 
 #remove output file if exists
@@ -26,6 +25,7 @@ awk -F , 'BEGIN{print "pat_id,pat_enc_csn_id,component_id,component_name,common_
 for file in P:/dihi_qi/data_pipeline/data/numeric_analytes/*.csv
 do
     echo Now scanning file: $file
-    awk -F , -v num=$NUM 'FNR==NR{a[$2]++;next};(FNR+num)==NR{b[$1]++;next};a[$4]&&b[$1]' \
+    awk -vFPAT='([^,]*)|("[^"]+")' -vOFS=, \
+    -v num=$NUM 'FNR==NR{a[$2]++;next};(FNR+num)==NR{b[$1]++;next};a[$4]&&b[$1]' \
     $grouper_file $cohort_pat_id $file >> $output_file
 done
