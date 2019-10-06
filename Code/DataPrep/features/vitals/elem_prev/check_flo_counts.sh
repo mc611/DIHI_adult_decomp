@@ -4,10 +4,10 @@
 # to get total counts of each distinct flow meas name being collected
 
 # a temporary output file to store flowsheet counts for each month
-output_temp='../../../../Data/Processed/features/vitals/flo_counts_temp.csv'
+output_temp='../../../../../Data/Processed/features/vitals/flo_counts_temp.csv'
 
 # the output file that stores flowsheet counts over the four years within cohort
-output_file='../../../../Data/Processed/features/vitals/flo_counts.csv'
+output_file='../../../../../Data/Processed/features/vitals/flo_counts.csv'
 
 #remove file if existing
 if [ -f $output_temp ] ; then
@@ -22,14 +22,14 @@ fi
 awk -F , 'BEGIN{print "flo_meas_name,count"}' >> $output_temp
 
 # loop through dihi vital data
+# array a stores all patient ids, array flow stores the count for each distinct flow meas name
+# cohort_pat_ids.csv: a file that stores cohort patient ids
 for file in P:/dihi_qi/data_pipeline/data/vitals/*.csv
 do
     echo Now scanning file: $file
     awk -vFPAT='([^,]*)|("[^"]+")' -vOFS=, \
-    # array a stores all patient ids, array flow stores the count for each distinct flow meas name
     'FNR==NR{a[$1]++;next};(FNR>1)&&a[$1]{flow[$3]++}END{for (i in flow) print i, flow[i]}' \
-    # a file that stores cohort patient ids
-    ../../../../Data/Processed/cohort/cohort_pat_ids.csv \
+    ../../../../../Data/Processed/cohort/cohort_pat_ids.csv \
     $file >> $output_temp
 done
 
