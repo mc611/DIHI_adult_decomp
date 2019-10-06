@@ -137,7 +137,10 @@ Project is: in progress;
 
 To-do list:
 
-* Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated
+* ~~Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated~~
+* ~~Truncate cohort (Now use cohort from 2015 to 2018)~~
+* Encounters that touch pediatric ICU and neonate ICU need to be excluded(in next iteration)
+* Update data elements' prevalence and distribution check (for new cohort) and re-pull data elements (In Progress!)
 * Data elements and groupers (feature engineering) used for the model need to be updated by referencing data element prevalence and distribution
 * Data quality assurance for vitals needs to be refined (break down vitals into the three hospitals and into each distinct flo measurement name)
 * Data quality assurance for analytes, medications and diagnoses are pending
@@ -150,6 +153,9 @@ To-do list:
 * More outcomes (RRT events, mortality etc) are to be incorporated
 
 ## License
+Copyright 2019 Ziyuan Shen, Duke Institute for Health Innovation (DIHI), Duke University School of Medicine, Durham NC.
+
+All Rights Reserved.
 
 ## Contact
 
