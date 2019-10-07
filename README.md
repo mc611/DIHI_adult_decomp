@@ -137,9 +137,10 @@ Project is: in progress;
 
 To-do list:
 
-* ~~Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated~~
+* Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated by duh_dep_info_v06 (in next iteration)
 * ~~Truncate cohort (Now use cohort from 2015 to 2018)~~
 * Encounters that touch pediatric ICU and neonate ICU need to be excluded(in next iteration)
+* re-pull blood culture data as grouper has been updated (in next iteration)
 * Update data elements' prevalence and distribution check (for new cohort) and re-pull data elements (In Progress!)
 * Data elements and groupers (feature engineering) used for the model need to be updated by referencing data element prevalence and distribution
 * Data quality assurance for vitals needs to be refined (break down vitals into the three hospitals and into each distinct flo measurement name)
