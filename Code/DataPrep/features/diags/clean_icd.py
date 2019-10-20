@@ -41,7 +41,7 @@ def clean_icd_df(df):
 
 
 def main():
-    diags_df = pd.read_csv('../../../../Data/Processed/features/diags/diags.csv')
+    diags_df = pd.read_csv('../../../../Data/Processed/features/diags/diags_contact_date_modified.csv')
 
     df_icd9 = diags_df[['pat_id', 'contact_date', 'icd9_code_edg']]
     df_icd9 = df_icd9.rename(columns={'icd9_code_edg': 'icd_code'})
