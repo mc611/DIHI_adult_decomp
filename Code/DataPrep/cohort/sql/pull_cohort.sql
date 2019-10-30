@@ -1,3 +1,12 @@
+-- Adult Decompensation Prediction
+--
+-- Copyright 2019 Ziyuan Shen, Duke Institute for Health Innovation (DIHI), Duke University School of Medicine, Durham NC.
+--
+-- All Rights Reserved.
+
+-- TO DO:
+-- exclude encounters that touch peds ICU and neonate ICU in next iteration
+
 DROP TABLE IF EXISTS adult_decomp_cohort;
 CREATE TABLE adult_decomp_cohort AS
 WITH adt AS
