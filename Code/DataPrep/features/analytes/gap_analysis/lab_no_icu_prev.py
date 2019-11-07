@@ -12,7 +12,7 @@ import pandas as pd
 
 def main():
     prev_df = pd.read_csv('../../../../../Data/Processed/features/analytes/gap_analysis/lab_no_icu_prev_temp.csv')
-    prev_df = clean_data_element_prev('component_name', prev_df, 151923)
+    prev_df = clean_data_element_prev('component_name', prev_df, 170663)
     prev_df.to_csv('../../../../../Data/Processed/features/analytes/gap_analysis/lab_no_icu_prev.csv')
 
 if __name__ == '__main__':
