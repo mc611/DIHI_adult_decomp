@@ -19,8 +19,8 @@ def main():
     mar_icu_freq = pd.read_csv(os.path.join(data_dir, 'mar_icu_freq.csv'), index_col=0)
     mar_icu_freq_6hrs = pd.read_csv(os.path.join(data_dir, 'mar_icu_freq_6hrs.csv'), index_col=0)
 
-    freq_df = gap_analysis_freq('medication_name', mar_icu_freq, mar_no_icu_freq, 25290, 151923)
-    freq_6hrs_df = gap_analysis_freq('medication_name', mar_icu_freq_6hrs, mar_no_icu_freq, 25290, 151923)
+    freq_df = gap_analysis_freq('medication_name', mar_icu_freq, mar_no_icu_freq, 6550, 170663)
+    freq_6hrs_df = gap_analysis_freq('medication_name', mar_icu_freq_6hrs, mar_no_icu_freq, 6550, 170663)
 
     freq_df.to_csv(os.path.join(data_dir, 'mar_gap_analysis_freq.csv'))
     freq_6hrs_df.to_csv(os.path.join(data_dir, 'mar_gap_analysis_freq_6hrs.csv'))
