@@ -19,8 +19,8 @@ def main():
     flo_icu_freq = pd.read_csv(os.path.join(data_dir, 'flo_icu_freq.csv'), index_col=0)
     flo_icu_freq_6hrs = pd.read_csv(os.path.join(data_dir, 'flo_icu_freq_6hrs.csv'), index_col=0)
 
-    freq_df = gap_analysis_freq('flo_meas_name', flo_icu_freq, flo_no_icu_freq, 25290, 151923)
-    freq_6hrs_df = gap_analysis_freq('flo_meas_name', flo_icu_freq_6hrs, flo_no_icu_freq, 25290, 151923)
+    freq_df = gap_analysis_freq('flo_meas_name', flo_icu_freq, flo_no_icu_freq, 6550, 170663)
+    freq_6hrs_df = gap_analysis_freq('flo_meas_name', flo_icu_freq_6hrs, flo_no_icu_freq, 6550, 270663)
 
     freq_df.to_csv(os.path.join(data_dir, 'flo_gap_analysis_freq.csv'))
     freq_6hrs_df.to_csv(os.path.join(data_dir, 'flo_gap_analysis_freq_6hrs.csv'))
