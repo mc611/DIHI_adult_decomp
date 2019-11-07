@@ -10,5 +10,5 @@
 
 SELECT DISTINCT pat_enc_csn_id
   , transfer_dttm
-FROM outcome_1st_icu_admission
+FROM outcome_1st_unplanned_icu_adm
 WHERE icu_admission_label = 1;

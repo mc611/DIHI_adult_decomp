@@ -9,5 +9,5 @@
 -- to get all pat encounter ids which DO NOT have an outcome as icu admission
 
 SELECT DISTINCT pat_enc_csn_id
-FROM outcome_1st_icu_admission
+FROM outcome_1st_unplanned_icu_adm
 WHERE icu_admission_label = 0;
