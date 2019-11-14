@@ -23,12 +23,14 @@ Directory tree along with functionality of each folder(or file) is summarized as
 <details><summary>DataPrep</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cohort&nbsp;&nbsp;&nbsp;&nbsp;//codes for cohort generation<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features&nbsp;&nbsp;&nbsp;&nbsp;//codes for pulling and cleaning data elements<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outcome<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outcome&nbsp;&nbsp;&nbsp;&nbsp;//codes for querying and labelling outcomes<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pull_data&nbsp;&nbsp;&nbsp;&nbsp;//pull useful data from raw db file<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.py<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.sql
 </details>
 &nbsp;&nbsp;&nbsp;&nbsp;db&nbsp;&nbsp;&nbsp;&nbsp;//codes for creating project database and importing data into the database
-<details><summary>Model</summary>
+<details><summary>Model</summary><blockquote>
+<details><summary>v1.0&nbsp;&nbsp;&nbsp;&nbsp;//version 1.0 (24-hour prediction window)</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design_matrix<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News&nbsp;&nbsp;&nbsp;&nbsp;//python package for implementing News(National Early Warning Score)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualization&nbsp;&nbsp;&nbsp;&nbsp;//model visualization<br/>
@@ -38,23 +40,28 @@ Directory tree along with functionality of each folder(or file) is summarized as
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run_news.py<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run_random_forest.ipynb<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run_xgboost.py
+</details></blockquote>
 </details>
+&nbsp;&nbsp;&nbsp;&nbsp;ockham&nbsp;&nbsp;&nbsp;&nbsp;//unit conversion package</br>
 &nbsp;&nbsp;&nbsp;&nbsp;utils&nbsp;&nbsp;&nbsp;&nbsp;//utils python package (db utils, dataframe utils, etc)
 </blockquote></details>
 
 <details><summary>Data</summary><blockquote>
 &nbsp;&nbsp;&nbsp;&nbsp;db&nbsp;&nbsp;&nbsp;&nbsp;//project database file(s)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;metadata
-<details><summary>Modeling</summary>
+<details><summary>Modeling</summary><blockquote>
+<details><summary>v1.0</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;design_matrix&nbsp;&nbsp;&nbsp;&nbsp;//design matrix file(s)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output&nbsp;&nbsp;&nbsp;&nbsp;//model output data
 </details>
+<blockquote></details>
 <details><summary>Processed</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cohort<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outcome<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adult_decomp_adt_transfer.csv
 </details>
+&nbsp;&nbsp;&nbsp;&nbsp;Raw&nbsp;&nbsp;&nbsp;&nbsp;//project raw data subset from datapipeline
 </blockquote></details>
 
 <details><summary>Docs&nbsp;&nbsp;&nbsp;&nbsp;//project documentation and materials</summary><blockquote>
@@ -102,6 +109,7 @@ Instructions on setting up the project locally.
 <li>imbalanced-learn 0.5.0</li>
 <li>Matplotlib 3.1.0</li>
 <li>seaborn 0.9.0</li>
+<li>Plotly 4.1.1</li>
 </ul>
 </details>
 
@@ -129,6 +137,8 @@ Data visualizations for the project include:
 
 * ./Code/DataPrep/cohort/visualization&nbsp;&nbsp;&nbsp;&nbsp;//cohort visualization
 * ./Code/DataPrep/features/vitals/visualization&nbsp;&nbsp;&nbsp;&nbsp;//vitals visualization (data element count, data quality assurance, etc)
+* ./Code/DataPrep/outcome/QA&nbsp;&nbsp;&nbsp;&nbsp;//ICU admission quality assurance
+* ./Code/DataPrep/outcome/patient_flow&nbsp;&nbsp;&nbsp;&nbsp;//Sankey diagram visualization
 * ./Code/Model/visualization&nbsp;&nbsp;&nbsp;&nbsp;//Model visualization(model metrics, etc)
 
 ## Status
@@ -138,11 +148,10 @@ Project is: in progress;
 To-do list:
 
 * Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated by duh_dep_info_v06 (in next iteration)
-* ~~Truncate cohort (Now use cohort from 2015 to 2018)~~
 * Encounters that touch pediatric ICU and neonate ICU need to be excluded(in next iteration)
 * re-pull blood culture data as grouper has been updated (in next iteration)
-* Update data elements' prevalence and distribution check (for new cohort) and re-pull data elements (In Progress!)
-* Data elements and groupers (feature engineering) used for the model need to be updated by referencing data element prevalence and distribution
+* pull medication data
+* Data elements and groupers (feature engineering) used for the model need to be updated by referencing gap analysis
 * Data quality assurance for vitals needs to be refined (break down vitals into the three hospitals and into each distinct flo measurement name)
 * Data quality assurance for analytes, medications and diagnoses are pending
 * Medlist data hasn't been used (to support medication features)
@@ -150,7 +159,7 @@ To-do list:
 * 100% unit conversion for vital, analyte, medication data etc is pending
 * Current random down sampling needs to be replaced by stratified down sampling
 * Model needs to be refined to predict ICU admission within first 24 hrs after hospital admission
-* Data collection and prediction time window is subjective to change
+* Data collection and prediction time window is subjective to change (1-hour prediction window in next iteration)
 * More outcomes (RRT events, mortality etc) are to be incorporated
 
 ## License
