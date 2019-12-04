@@ -25,8 +25,8 @@ Directory tree along with functionality of each folder(or file) is summarized as
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features&nbsp;&nbsp;&nbsp;&nbsp;//codes for pulling and cleaning data elements<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outcome&nbsp;&nbsp;&nbsp;&nbsp;//codes for querying and labelling outcomes<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pull_data&nbsp;&nbsp;&nbsp;&nbsp;//pull useful data from raw db file<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.py<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.sql
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.py&nbsp;&nbsp;&nbsp;&nbsp;//create transfer table and output a csv file<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adt_transfer.sql&nbsp;&nbsp;&nbsp;&nbsp;//transfer table sql query
 </details>
 &nbsp;&nbsp;&nbsp;&nbsp;db&nbsp;&nbsp;&nbsp;&nbsp;//codes for creating project database and importing data into the database
 <details><summary>Model</summary><blockquote>
@@ -68,8 +68,10 @@ Directory tree along with functionality of each folder(or file) is summarized as
 <details><summary>Project</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code map_v1.xlsx&nbsp;&nbsp;&nbsp;&nbsp;
 //outlines the code and associated data files for "start-to-finish" process of data curation<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code map_v2.xlsx&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code map_supplement.xlsx&nbsp;&nbsp;&nbsp;&nbsp;
 //outlines supporting code and data files for feature engineering, modeling, etc<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code map_supplement_v2.xlsx&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;literature_review.pdf<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perspectives Piece.docx
 </details>
@@ -77,8 +79,12 @@ Directory tree along with functionality of each folder(or file) is summarized as
 </blockquote></details>
 
 <details><summary>Output&nbsp;&nbsp;&nbsp;&nbsp;//project output files, figures, etc</summary><blockquote>
-&nbsp;&nbsp;&nbsp;&nbsp;Figures&nbsp;&nbsp;&nbsp;&nbsp;//data visualization figures<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*.csv
+<details><summary>Figures&nbsp;&nbsp;&nbsp;&nbsp;//data visualization figures</summary>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cohort&nbsp;&nbsp;&nbsp;&nbsp;//visualization figures for cohort statistics</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features&nbsp;&nbsp;&nbsp;&nbsp;//visualization figures for features quality assurance</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Model&nbsp;&nbsp;&nbsp;&nbsp;//visualization figures for model performance</br>
+</details>
+&nbsp;&nbsp;&nbsp;&nbsp;gap_analysis&nbsp;&nbsp;&nbsp;&nbsp;//gap analysis output
 </blockquote></details>
 .gitignore<br/>
 README.md
@@ -148,17 +154,12 @@ Project is: in progress;
 To-do list:
 
 * Hospital unit labels (LU_hospital_units table) in `P:/dihi_qi/data_pipeline/db/data_pipeline.db` needs to be updated by duh_dep_info_v06 (in next iteration)
-* Encounters that touch pediatric ICU and neonate ICU need to be excluded(in next iteration)
+* Encounters that touch pediatric ICU and neonate ICU need to be excluded (in next iteration)
 * re-pull blood culture data as grouper has been updated (in next iteration)
-* pull medication data
-* Data elements and groupers (feature engineering) used for the model need to be updated by referencing gap analysis
+* re-pull medication data and pull order data
 * Data quality assurance for vitals needs to be refined (break down vitals into the three hospitals and into each distinct flo measurement name)
-* Data quality assurance for analytes, medications and diagnoses are pending
-* Medlist data hasn't been used (to support medication features)
-* Problist data hasn't been used (to support diagnosis features)
 * 100% unit conversion for vital, analyte, medication data etc is pending
 * Current random down sampling needs to be replaced by stratified down sampling
-* Model needs to be refined to predict ICU admission within first 24 hrs after hospital admission
 * Data collection and prediction time window is subjective to change (1-hour prediction window in next iteration)
 * More outcomes (RRT events, mortality etc) are to be incorporated
 
