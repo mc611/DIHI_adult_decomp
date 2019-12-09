@@ -1,3 +1,4 @@
 Docs/* linguist-vendored
 Output/* linguist-vendored
 Code/DataPrep/outcome/patient_flow/* linguist-vendored
+Code/DataPrep/features/analytes/pull_analytes/* linguist-vendored
