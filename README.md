@@ -4,13 +4,15 @@
 
 > This project aims to initialize machine learning models for predicting adult inpatients' decompensation (ICU admission, mortality, RRT events, etc). Most preliminary work before building models includes data cleaning, data visualization, data quality assurance and data manipulation etc. The ultimate goal is to reduce patients' deterioration and standardize hospital response protocols.
 
-## Table of contents
+## Table of contentsv
 
 * [Architecture](#architecture)
 * [Getting Started](#getting-started)
 * [Data](#data)
+* [Modeling](#modeling)
 * [Visualizations](#visualizations)
 * [Status](#status)
+* [Docs](#docs)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgement](#acknowledgement)
@@ -137,15 +139,32 @@ All the source data comes from the following locations:
 * P:/dihi_qi/data_pipeline/data
 * P:/dihi_qi/data_pipeline/metadata
 
+## Modeling
+
+Feature Engineering specifics for Model V1.0 is available [here](https://ziyuan-shen.github.io/files/slides/feature_engineering.pdf).</br>
+</br>
+**Work pipeline:**</br>
+<img src="./Docs/Figures/pipeline.png" alt="drawing" width="400"/>
+
+**Modeling V1.0 Specifics:**</br>
+<br>
+<img src="./Docs/Figures/model.png" alt="drawing" width="600"/>
+
 ## Visualizations
 
 Data visualizations for the project include:
 
-* ./Code/DataPrep/cohort/visualization&nbsp;&nbsp;&nbsp;&nbsp;//cohort visualization
+* ./Code/DataPrep/cohort/visualization&nbsp;&nbsp;&nbsp;&nbsp;//cohort statistics visualization</br>
+  [View Visualization](https://ziyuan-shen.github.io/files/slides/cohort_statistics_visualization.pdf)
 * ./Code/DataPrep/features/vitals/visualization&nbsp;&nbsp;&nbsp;&nbsp;//vitals visualization (data element count, data quality assurance, etc)
 * ./Code/DataPrep/outcome/QA&nbsp;&nbsp;&nbsp;&nbsp;//ICU admission quality assurance
-* ./Code/DataPrep/outcome/patient_flow&nbsp;&nbsp;&nbsp;&nbsp;//Sankey diagram visualization
-* ./Code/Model/visualization&nbsp;&nbsp;&nbsp;&nbsp;//Model visualization(model metrics, etc)
+* ./Code/DataPrep/outcome/patient_flow&nbsp;&nbsp;&nbsp;&nbsp;//Sankey diagram visualization</br>
+  View Sankey Diagram
+    * [ICU sub-cohort](https://ziyuan-shen.github.io/files/visualization/adult_decompensation_sankey_diagram.html)
+    * [OR to ICU sub-cohort](https://ziyuan-shen.github.io/files/visualization/adult_decomp_or_to_icu_sankey_diagram.html)
+* ./Code/Model/visualization&nbsp;&nbsp;&nbsp;&nbsp;//Model visualization (model metrics, etc)</br>
+  [View Visualization](https://ziyuan-shen.github.io/files/slides/model_metrics.pdf)
+
 
 ## Status
 
@@ -163,7 +182,19 @@ To-do list:
 * Data collection and prediction time window is subjective to change (1-hour prediction window in next iteration)
 * More outcomes (RRT events, mortality etc) are to be incorporated
 
+## Docs
+
+* Presentation slides
+    * [Literature review](https://ziyuan-shen.github.io/files/slides/slides_literature_review.pdf)
+    * [Cohort extraction](https://ziyuan-shen.github.io/files/slides/slides_mid_presentation.pdf)
+    * [Feature Engineering and Model building](https://ziyuan-shen.github.io/files/slides/slides_final_presentation.pdf)
+    * [Exploratory Data Analysis and Model Iterating](https://ziyuan-shen.github.io/files/slides/slides_EDA.pdf)
+* Reports
+    * [Literature review](https://ziyuan-shen.github.io/files/adult_decomp_literature_review.pdf)
+    * [Complete Report](https://ziyuan-shen.github.io/files/adult_decomp_report.pdf)
+
 ## License
+
 Copyright 2019 Ziyuan Shen, Duke Institute for Health Innovation (DIHI), Duke University School of Medicine, Durham NC.
 
 All Rights Reserved.
