@@ -4,7 +4,7 @@
 
 > This project aims to initialize machine learning models for predicting adult inpatients' decompensation (ICU admission, mortality, RRT events, etc). Most preliminary work before building models includes data cleaning, data visualization, data quality assurance and data manipulation etc. The ultimate goal is to reduce patients' deterioration and standardize hospital response protocols.
 
-## Table of contentsv
+## Table of contents
 
 * [Architecture](#architecture)
 * [Getting Started](#getting-started)
