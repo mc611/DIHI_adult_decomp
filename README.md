@@ -143,8 +143,11 @@ All the source data comes from the following locations:
 
 Feature Engineering specifics for Model V1.0 is available [here](https://ziyuan-shen.github.io/files/slides/feature_engineering.pdf).</br>
 </br>
-**Work pipeline:**</br>
+**Work Pipeline:**</br>
 <img src="./Docs/Figures/pipeline.png" alt="drawing" width="400"/>
+
+**Cohort Extraction Logic:**</br>
+<img src="./Docs/Figures/database8.png" alt="drawing" width="450"/>
 
 **Modeling V1.0 Specifics:**</br>
 <br>
